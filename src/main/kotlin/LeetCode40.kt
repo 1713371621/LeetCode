@@ -28,11 +28,11 @@ class LeetCode40 {
   }
 
   private fun combination(
-          candidates: MutableList<Int>,
-          target: Int,
-          resultCandidates: MutableList<List<Int>>,
-          resultCandidate: MutableList<Int>,
-          start: Int
+      candidates: MutableList<Int>,
+      target: Int,
+      resultCandidates: MutableList<List<Int>>,
+      resultCandidate: MutableList<Int>,
+      start: Int
   ) {
     if (target == 0) {
       resultCandidates.add(resultCandidate.toList())

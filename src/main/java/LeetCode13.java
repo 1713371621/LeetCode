@@ -6,21 +6,44 @@ public class LeetCode13 {
 
   public static void main(String[] args) {
     LeetCode13 leetCode13 = new LeetCode13();
-    System.out.println(leetCode13.romanToInt("XXX"));
+    System.out.println(leetCode13.romanToInt("MCMXCIV"));
   }
 
   public int romanToInt(String s) {
-
-    int[] nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    int result = 0;
-    String[] romans = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    char[] chars = s.toCharArray();
-    for (int index = 13; index > 0; index--) {
-      if (String.valueOf(chars[0]).equals(romans[index]) ||
-          String.valueOf(chars[0] + chars[1]).equals(romans[index])) {
-        result += nums[index];
+    int sum = 0;
+    int preNum = getValue(s.charAt(0));
+    for (int i = 1; i < s.length(); i++) {
+      int num = getValue(s.charAt(i));
+      if (preNum < num) {
+        sum -= preNum;
+      } else {
+        sum += preNum;
       }
+      preNum = num;
     }
-    return 123;
+    sum += preNum;
+    return sum;
   }
+
+  private int getValue(char ch) {
+    switch (ch) {
+      case 'I':
+        return 1;
+      case 'V':
+        return 5;
+      case 'X':
+        return 10;
+      case 'L':
+        return 50;
+      case 'C':
+        return 100;
+      case 'D':
+        return 500;
+      case 'M':
+        return 1000;
+      default:
+        return 0;
+    }
+  }
+
 }
