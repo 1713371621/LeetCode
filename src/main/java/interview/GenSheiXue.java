@@ -5,10 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GenSheiXue {
-  // 如 123456789123456789 * 56789
-// 已经按照低位到高位转成整数数组
-// a = {9, 8, 7, 6, 5, 4, 3, 2, 1, 9, 8, 7, 6, 5, 4, 3, 2, 1}
-// b = {9, 8, 7, 6, 5}
+
   int[] multiply(int[] a, int[] b) {
     List<List<Integer>> numLists = new ArrayList<>();
     for (int value : b) {
